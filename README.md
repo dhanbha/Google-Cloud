@@ -21,4 +21,5 @@ Note: All Gcloud commands are here
 #First GCP Bootcamp challenge(Service Account API) Following code access Google Cloud project using service account API key and list all buckets on the project :
 https://github.com/dhanbha/Google-Cloud/blob/main/storage_list
 
-#Second GCP Bootcamp challenge(Cloud SDK) Following code access Google Cloud project using Cloud SDK google-api-python-client 
+#Second GCP Bootcamp challenge of IAM: Read the VM details by using Python scripts
+https://github.com/dhanbha/Google-Cloud/blob/main/instances_list.py
