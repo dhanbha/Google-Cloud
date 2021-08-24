@@ -1,0 +1,31 @@
+Cloud Filestore - Useful commands used during the hands-on exercise:
+
+- Updating the OS and installing the NFS Common:
+
+sudo apt-get -y update
+
+sudo apt-get -y install nfs-common
+
+
+
+- Listing the filesystems:
+
+df -h
+
+
+
+- Mounting the Cloud Filestore:
+
+mkdir /mnt/tcb_gcfs
+
+sudo mount <FILESTORE_IP>:/tcb_shared_file/mnt/tcb_gcfs
+
+sudo chmod go+rw /mnt/tcb_gcfs
+
+
+
+- Creating a sample file:
+
+echo "File 01"> /mnt/tcb_gcfs/File01
+
+cat File01
