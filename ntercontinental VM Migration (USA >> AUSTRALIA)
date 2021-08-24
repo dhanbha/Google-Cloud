@@ -1,0 +1,11 @@
+Migrating the VMs using the Storage SnapshotStep 1) Checkingthedisks'inuse'byVMsusa-app01andusa-db01Step 
+2) CreatingsnapshotfromdisksoftheVMsusa-app01andusa-DB01gcloud compute disks snapshot usa-db01 --snapshot-names usa-db01-snapshot --zone us-west1-bgcloud compute disks snapshot usa-app01 --snapshot-names usa-app01-snapshot --zone us-west1-bStep 
+3) Creatingdisksintheaustralia-southeast1  (Sydney)region,usingassourcethesnapshotscreatedintheus-west1 (Oregon) region.gcloud compute disks create aus-db01 --source-snapshot usa-db01-snapshot --zone australia-southeast1-agcloud compute disks create aus-app01 --source-snapshot usa-app01-snapshot --zone australia-southeast1-a
+Step 
+4) CreatinginstancesintheSydney region,usingassourcethediskscreatedinthepreviousstep.gcloud compute instances create aus-app01 --machine-type e2-micro --zone australia-southeast1-a --disk name=aus-app01,boot=yes,mode=rwgcloud compute instances create aus-db01 --machine-type e2-micro --zone australia-southeast1-a --disk name=aus-db01,boot=yes,mode=rwStep 
+5)Accessingtheinstanceaus-app01viasshStep 
+6) Accessingthefolderbootcamp-gcp-storage-clinic-mib-appcd bootcamp-gcp-storage-clinic-mib-appStep 
+7)Editingthefilesrc/index.js.vi src/index.jsStep 
+8)IntheMiddlewares section, replace:host:totheprivate IP private of the VM aus-db01.Step 
+9) Starting the applicationnode src/index.jsStep
+10) Accessingtheapplicationonport3000inthebrowser:http://<external-ip-from-aus-app01:3000
